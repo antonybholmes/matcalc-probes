@@ -1,0 +1,9 @@
+bin
+.metadata
+tmp
+cache
+/.settings
+/e2f4.jaspar
+/target/
+/out.log
+/out.log.2016-11-22

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings>
+	<setting name="/pathway/help/type" value="remote"/>
+	<setting name="/pathway/help/url" value="http://156.145.14.248:8080/"/>
+	<setting name="/plot/block-size" value="16"/>
+	<setting name="/plot/char-width" value="9"/>
+	<setting name="/plot/color-bar-width" value="200"/>
+	<setting name="/plot/functions/enable-new-dendrogram" value="true"/>
+	<setting name="/plot/legend-width" value="200"/>
+	<setting name="/plot/max-display-rows" value="50000"/>
+	<setting name="/plot/row-label-max-chars" value="50"/>
+</settings>
