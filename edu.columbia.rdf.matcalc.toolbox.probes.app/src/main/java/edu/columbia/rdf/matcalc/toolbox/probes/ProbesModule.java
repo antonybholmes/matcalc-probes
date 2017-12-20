@@ -130,17 +130,17 @@ public class ProbesModule extends CalcModule implements ModernClickListener  {
 		
 		Path file = dialog.getFile();
 		
-		int cols = m.getColumnCount();
+		int cols = m.getCols();
 		
 		DataFrame m2 = 
-				DataFrame.createDataFrame(m.getRowCount(), cols + 2);
+				DataFrame.createDataFrame(m.getRows(), cols + 2);
 		
 		DataFrame.copyColumns(m, m2);
 
 		// load the chip map
 		Map<String, ProbeGene> probeGeneMap = ChipFile.parseChipFile(file);
 
-		for (int i = 0; i < m.getRowCount(); ++i) {
+		for (int i = 0; i < m.getRows(); ++i) {
 			String name = m.getText(i, c);
 			
 			if (probeGeneMap.containsKey(name)) {
