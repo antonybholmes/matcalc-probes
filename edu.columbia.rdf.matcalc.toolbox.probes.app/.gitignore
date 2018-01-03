@@ -1,8 +1,8 @@
-bin
+/bin/
 .metadata
-tmp
-cache
+/tmp/
+/cache/
 /.settings
-/e2f4.jaspar
 /target/
 /*log*
+/.classpath
