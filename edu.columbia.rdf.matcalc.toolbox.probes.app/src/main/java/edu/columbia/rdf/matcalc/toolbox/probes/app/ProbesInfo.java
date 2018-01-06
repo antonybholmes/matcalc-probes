@@ -31,21 +31,18 @@ import org.jebtk.core.AppVersion;
 import org.jebtk.modern.UIService;
 import org.jebtk.modern.help.GuiAppInfo;
 
-
 /**
  * The class PathwayInfo.
  */
 public class ProbesInfo extends GuiAppInfo {
 
-	/**
-	 * Instantiates a new pathway info.
-	 */
-	public ProbesInfo() {
-		super("Probes",
-				new AppVersion(1),
-				"Copyright (C) 2016 Antony Holmes",
-				UIService.getInstance().loadIcon(ProbesIcon.class, 32),
-				UIService.getInstance().loadIcon(ProbesIcon.class, 128));
-	}
+  /**
+   * Instantiates a new pathway info.
+   */
+  public ProbesInfo() {
+    super("Probes", new AppVersion(1), "Copyright (C) 2016 Antony Holmes",
+        UIService.getInstance().loadIcon(ProbesIcon.class, 32),
+        UIService.getInstance().loadIcon(ProbesIcon.class, 128));
+  }
 
 }

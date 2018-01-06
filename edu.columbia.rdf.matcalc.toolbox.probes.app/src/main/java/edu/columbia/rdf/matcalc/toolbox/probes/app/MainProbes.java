@@ -27,8 +27,6 @@
  */
 package edu.columbia.rdf.matcalc.toolbox.probes.app;
 
-
-
 import java.awt.FontFormatException;
 import java.io.IOException;
 
@@ -46,23 +44,22 @@ import org.xml.sax.SAXException;
 import edu.columbia.rdf.matcalc.bio.BioModuleLoader;
 import edu.columbia.rdf.matcalc.toolbox.probes.ProbesModule;
 
-
-
-
 /**
  * The class MainPathway.
  */
 public class MainProbes {
-	
-	public static final void main(String[] args) throws FontFormatException, IOException, SAXException, ParserConfigurationException, ClassNotFoundException, InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException {
-		AppService.getInstance().setAppInfo("probes");
-		
-		ThemeService.getInstance().setTheme(ColorTheme.ORANGE);
-		
-		ModuleLoader ml = new BioModuleLoader();
-		
-		ml.addModule(ProbesModule.class);
-		
-		MainMatCalc.main(new ProbesInfo(), ml);
-	}
+
+  public static final void main(String[] args)
+      throws FontFormatException, IOException, SAXException, ParserConfigurationException, ClassNotFoundException,
+      InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException {
+    AppService.getInstance().setAppInfo("probes");
+
+    ThemeService.getInstance().setTheme(ColorTheme.ORANGE);
+
+    ModuleLoader ml = new BioModuleLoader();
+
+    ml.addModule(ProbesModule.class);
+
+    MainMatCalc.main(new ProbesInfo(), ml);
+  }
 }

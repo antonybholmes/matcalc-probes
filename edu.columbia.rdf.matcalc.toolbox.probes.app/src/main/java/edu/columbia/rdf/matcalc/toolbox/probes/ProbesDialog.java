@@ -12,41 +12,40 @@ import org.jebtk.modern.widget.ModernWidget;
 import org.jebtk.modern.window.ModernWindow;
 import org.jebtk.modern.window.WindowWidgetFocusEvents;
 
+public class ProbesDialog extends ModernDialogHelpWindow {
+  private static final long serialVersionUID = 1L;
 
-public class ProbesDialog extends ModernDialogHelpWindow  {
-	private static final long serialVersionUID = 1L;
+  private ArrayCombo mArrayCombo = new ArrayCombo();
 
-	private ArrayCombo mArrayCombo = new ArrayCombo();
+  public ProbesDialog(ModernWindow parent) {
+    super(parent, "probes.help.url");
 
-	public ProbesDialog(ModernWindow parent) {
-		super(parent, "probes.help.url");
+    setTitle("Probes");
 
-		setTitle("Probes");
+    setup();
 
-		setup();
+    createUi();
+  }
 
-		createUi();
-	}
+  private void setup() {
+    addWindowListener(new WindowWidgetFocusEvents(mOkButton));
 
-	private void setup() {
-		addWindowListener(new WindowWidgetFocusEvents(mOkButton));
+    setSize(480, 200);
 
-		setSize(480, 200);
+    UI.centerWindowToScreen(this);
+  }
 
-		UI.centerWindowToScreen(this);
-	}
+  private final void createUi() {
+    Box box = VBox.create();
 
-	private final void createUi() {
-		Box box = VBox.create();
+    box.add(new HExpandBox("Array", mArrayCombo));
 
-		box.add(new HExpandBox("Array", mArrayCombo));
-		
-		UI.setSize(mArrayCombo, ModernWidget.VERY_LARGE_SIZE);
+    UI.setSize(mArrayCombo, ModernWidget.VERY_LARGE_SIZE);
 
-		setContent(box);
-	}
+    setContent(box);
+  }
 
-	public Path getFile() {
-		return mArrayCombo.getFile();
-	}
+  public Path getFile() {
+    return mArrayCombo.getFile();
+  }
 }

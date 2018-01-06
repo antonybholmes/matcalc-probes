@@ -46,116 +46,116 @@ import edu.columbia.rdf.matcalc.MainMatCalcWindow;
 import edu.columbia.rdf.matcalc.toolbox.CalcModule;
 import edu.columbia.rdf.matcalc.toolbox.probes.app.ProbesIcon;
 
-
 /**
  * Map probes to genes.
  *
  * @author Antony Holmes Holmes
  *
  */
-public class ProbesModule extends CalcModule implements ModernClickListener  {
+public class ProbesModule extends CalcModule implements ModernClickListener {
 
-	/**
-	 * The member convert button.
-	 */
-	private RibbonLargeButton mConvertButton = 
-			new RibbonLargeButton("Probes", 
-					UIService.getInstance().loadIcon(ProbesIcon.class, 24));
+  /**
+   * The member convert button.
+   */
+  private RibbonLargeButton mConvertButton = new RibbonLargeButton("Probes",
+      UIService.getInstance().loadIcon(ProbesIcon.class, 24));
 
-	public static final Path DIR = PathUtils.getPath("res/modules/probes");
-	
+  public static final Path DIR = PathUtils.getPath("res/modules/probes");
 
-	/**
-	 * The member window.
-	 */
-	private MainMatCalcWindow mWindow;
+  /**
+   * The member window.
+   */
+  private MainMatCalcWindow mWindow;
 
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.NameProperty#getName()
-	 */
-	@Override
-	public String getName() {
-		return "Probes";
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.NameProperty#getName()
+   */
+  @Override
+  public String getName() {
+    return "Probes";
+  }
 
-	/* (non-Javadoc)
-	 * @see edu.columbia.rdf.apps.matcalc.modules.Module#init(edu.columbia.rdf.apps.matcalc.MainMatCalcWindow)
-	 */
-	@Override
-	public void init(MainMatCalcWindow window) {
-		mWindow = window;
-		
-		// home
-		mWindow.getRibbon().getToolbar("Bioinformatics").getSection("Probes").add(mConvertButton);
+  /*
+   * (non-Javadoc)
+   * 
+   * @see edu.columbia.rdf.apps.matcalc.modules.Module#init(edu.columbia.rdf.apps.
+   * matcalc.MainMatCalcWindow)
+   */
+  @Override
+  public void init(MainMatCalcWindow window) {
+    mWindow = window;
 
-		mConvertButton.addClickListener(this);
-	}
+    // home
+    mWindow.getRibbon().getToolbar("Bioinformatics").getSection("Probes").add(mConvertButton);
 
-	
+    mConvertButton.addClickListener(this);
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern.event.ModernClickEvent)
-	 */
-	@Override
-	public final void clicked(ModernClickEvent e) {
-		try {
-			mapProbes();
-		} catch (IOException e1) {
-			e1.printStackTrace();
-		}
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
+   * .event.ModernClickEvent)
+   */
+  @Override
+  public final void clicked(ModernClickEvent e) {
+    try {
+      mapProbes();
+    } catch (IOException e1) {
+      e1.printStackTrace();
+    }
+  }
 
-	private void mapProbes() throws IOException {
-		DataFrame m = mWindow.getCurrentMatrix();
-		
-		int c = mWindow.getSelectedColumn();
-		
-		if (c == Integer.MIN_VALUE) {
-			ModernMessageDialog.createWarningDialog(mWindow, 
-					"You must select a column of probe ids.");
+  private void mapProbes() throws IOException {
+    DataFrame m = mWindow.getCurrentMatrix();
 
-			return;
-		}
-		
-		System.err.println("c " + c);
-		
-		ProbesDialog dialog = new ProbesDialog(mWindow);
-		
-		dialog.setVisible(true);
-		
-		if (dialog.isCancelled()) {
-			return;
-		}
-		
-		Path file = dialog.getFile();
-		
-		int cols = m.getCols();
-		
-		DataFrame m2 = 
-				DataFrame.createDataFrame(m.getRows(), cols + 2);
-		
-		DataFrame.copyColumns(m, m2);
+    int c = mWindow.getSelectedColumn();
 
-		// load the chip map
-		Map<String, ProbeGene> probeGeneMap = ChipFile.parseChipFile(file);
+    if (c == Integer.MIN_VALUE) {
+      ModernMessageDialog.createWarningDialog(mWindow, "You must select a column of probe ids.");
 
-		for (int i = 0; i < m.getRows(); ++i) {
-			String name = m.getText(i, c);
-			
-			if (probeGeneMap.containsKey(name)) {
-				m2.set(i, cols, probeGeneMap.get(name).getGeneSymbol());
-				m2.set(i, cols + 1, probeGeneMap.get(name).getDescription());
-			} else {
-				m2.set(i, cols, TextUtils.NA);
-				m2.set(i, cols + 1, TextUtils.NA);
-			}
-		}
-		
-		m2.setColumnName(cols, "Gene Symbol");
-		m2.setColumnName(cols + 1, "Description");
-		
-		
-		mWindow.addToHistory("Probes to genes", m2);
-	}
+      return;
+    }
+
+    System.err.println("c " + c);
+
+    ProbesDialog dialog = new ProbesDialog(mWindow);
+
+    dialog.setVisible(true);
+
+    if (dialog.isCancelled()) {
+      return;
+    }
+
+    Path file = dialog.getFile();
+
+    int cols = m.getCols();
+
+    DataFrame m2 = DataFrame.createDataFrame(m.getRows(), cols + 2);
+
+    DataFrame.copyColumns(m, m2);
+
+    // load the chip map
+    Map<String, ProbeGene> probeGeneMap = ChipFile.parseChipFile(file);
+
+    for (int i = 0; i < m.getRows(); ++i) {
+      String name = m.getText(i, c);
+
+      if (probeGeneMap.containsKey(name)) {
+        m2.set(i, cols, probeGeneMap.get(name).getGeneSymbol());
+        m2.set(i, cols + 1, probeGeneMap.get(name).getDescription());
+      } else {
+        m2.set(i, cols, TextUtils.NA);
+        m2.set(i, cols + 1, TextUtils.NA);
+      }
+    }
+
+    m2.setColumnName(cols, "Gene Symbol");
+    m2.setColumnName(cols + 1, "Description");
+
+    mWindow.addToHistory("Probes to genes", m2);
+  }
 }
