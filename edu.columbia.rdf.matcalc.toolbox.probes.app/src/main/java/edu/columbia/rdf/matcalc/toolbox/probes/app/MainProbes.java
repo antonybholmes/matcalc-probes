@@ -36,11 +36,10 @@ import javax.xml.parsers.ParserConfigurationException;
 import org.jebtk.core.AppService;
 import org.jebtk.modern.ColorTheme;
 import org.jebtk.modern.theme.ThemeService;
-import edu.columbia.rdf.matcalc.MainMatCalc;
-import edu.columbia.rdf.matcalc.ModuleLoader;
-
 import org.xml.sax.SAXException;
 
+import edu.columbia.rdf.matcalc.MainMatCalc;
+import edu.columbia.rdf.matcalc.ModuleLoader;
 import edu.columbia.rdf.matcalc.bio.BioModuleLoader;
 import edu.columbia.rdf.matcalc.toolbox.probes.ProbesModule;
 
@@ -49,9 +48,10 @@ import edu.columbia.rdf.matcalc.toolbox.probes.ProbesModule;
  */
 public class MainProbes {
 
-  public static final void main(String[] args)
-      throws FontFormatException, IOException, SAXException, ParserConfigurationException, ClassNotFoundException,
-      InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException {
+  public static final void main(String[] args) throws FontFormatException,
+      IOException, SAXException, ParserConfigurationException,
+      ClassNotFoundException, InstantiationException, IllegalAccessException,
+      UnsupportedLookAndFeelException {
     AppService.getInstance().setAppInfo("probes");
 
     ThemeService.getInstance().setTheme(ColorTheme.ORANGE);

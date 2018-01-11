@@ -80,7 +80,8 @@ public class ProbesModule extends CalcModule implements ModernClickListener {
   /*
    * (non-Javadoc)
    * 
-   * @see edu.columbia.rdf.apps.matcalc.modules.Module#init(edu.columbia.rdf.apps.
+   * @see
+   * edu.columbia.rdf.apps.matcalc.modules.Module#init(edu.columbia.rdf.apps.
    * matcalc.MainMatCalcWindow)
    */
   @Override
@@ -88,7 +89,8 @@ public class ProbesModule extends CalcModule implements ModernClickListener {
     mWindow = window;
 
     // home
-    mWindow.getRibbon().getToolbar("Bioinformatics").getSection("Probes").add(mConvertButton);
+    mWindow.getRibbon().getToolbar("Bioinformatics").getSection("Probes")
+        .add(mConvertButton);
 
     mConvertButton.addClickListener(this);
   }
@@ -97,8 +99,8 @@ public class ProbesModule extends CalcModule implements ModernClickListener {
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
-   * .event.ModernClickEvent)
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * modern .event.ModernClickEvent)
    */
   @Override
   public final void clicked(ModernClickEvent e) {
@@ -115,7 +117,8 @@ public class ProbesModule extends CalcModule implements ModernClickListener {
     int c = mWindow.getSelectedColumn();
 
     if (c == Integer.MIN_VALUE) {
-      ModernMessageDialog.createWarningDialog(mWindow, "You must select a column of probe ids.");
+      ModernMessageDialog.createWarningDialog(mWindow,
+          "You must select a column of probe ids.");
 
       return;
     }

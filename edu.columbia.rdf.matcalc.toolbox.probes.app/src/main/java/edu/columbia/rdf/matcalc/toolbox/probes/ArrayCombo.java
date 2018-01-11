@@ -22,7 +22,8 @@ public class ArrayCombo extends ModernComboBox {
       mFiles = FileUtils.ls(ProbesModule.DIR, new GzGuiFileFilter());
 
       for (Path file : mFiles) {
-        addMenuItem(PathUtils.getName(file).substring(0, PathUtils.getName(file).length() - 8));
+        addMenuItem(PathUtils.getName(file).substring(0,
+            PathUtils.getName(file).length() - 8));
       }
     } catch (IOException e) {
       e.printStackTrace();
