@@ -28,7 +28,7 @@
 package edu.columbia.rdf.matcalc.toolbox.probes.app;
 
 import org.jebtk.core.AppVersion;
-import org.jebtk.modern.UIService;
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.help.GuiAppInfo;
 
 /**
@@ -41,8 +41,8 @@ public class ProbesInfo extends GuiAppInfo {
    */
   public ProbesInfo() {
     super("Probes", new AppVersion(1), "Copyright (C) 2016 Antony Holmes",
-        UIService.getInstance().loadIcon(ProbesIcon.class, 32),
-        UIService.getInstance().loadIcon(ProbesIcon.class, 128));
+        AssetService.getInstance().loadIcon(ProbesIcon.class, 32),
+        AssetService.getInstance().loadIcon(ProbesIcon.class, 128));
   }
 
 }

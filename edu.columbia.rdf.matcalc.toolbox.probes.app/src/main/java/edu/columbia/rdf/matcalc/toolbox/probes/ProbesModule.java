@@ -36,7 +36,7 @@ import org.jebtk.bioinformatics.genomic.ProbeGene;
 import org.jebtk.core.io.PathUtils;
 import org.jebtk.core.text.TextUtils;
 import org.jebtk.math.matrix.DataFrame;
-import org.jebtk.modern.UIService;
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.dialog.ModernMessageDialog;
 import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.event.ModernClickListener;
@@ -58,7 +58,7 @@ public class ProbesModule extends CalcModule implements ModernClickListener {
    * The member convert button.
    */
   private RibbonLargeButton mConvertButton = new RibbonLargeButton("Probes",
-      UIService.getInstance().loadIcon(ProbesIcon.class, 24));
+      AssetService.getInstance().loadIcon(ProbesIcon.class, 24));
 
   public static final Path DIR = PathUtils.getPath("res/modules/probes");
 
