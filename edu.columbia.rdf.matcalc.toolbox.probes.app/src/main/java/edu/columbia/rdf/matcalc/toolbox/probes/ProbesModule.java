@@ -43,7 +43,7 @@ import org.jebtk.modern.event.ModernClickListener;
 import org.jebtk.modern.ribbon.RibbonLargeButton;
 
 import edu.columbia.rdf.matcalc.MainMatCalcWindow;
-import edu.columbia.rdf.matcalc.toolbox.CalcModule;
+import edu.columbia.rdf.matcalc.toolbox.Module;
 import edu.columbia.rdf.matcalc.toolbox.probes.app.ProbesIcon;
 
 /**
@@ -52,7 +52,7 @@ import edu.columbia.rdf.matcalc.toolbox.probes.app.ProbesIcon;
  * @author Antony Holmes Holmes
  *
  */
-public class ProbesModule extends CalcModule implements ModernClickListener {
+public class ProbesModule extends Module implements ModernClickListener {
 
   /**
    * The member convert button.
@@ -159,6 +159,6 @@ public class ProbesModule extends CalcModule implements ModernClickListener {
     m2.setColumnName(cols, "Gene Symbol");
     m2.setColumnName(cols + 1, "Description");
 
-    mWindow.addToHistory("Probes to genes", m2);
+    mWindow.history().addToHistory("Probes to genes", m2);
   }
 }
