@@ -49,7 +49,7 @@ import edu.columbia.rdf.matcalc.toolbox.probes.app.ProbesIcon;
 /**
  * Map probes to genes.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ProbesModule extends Module implements ModernClickListener {
