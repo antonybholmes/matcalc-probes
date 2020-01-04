@@ -4,11 +4,11 @@ import java.nio.file.Path;
 
 import javax.swing.Box;
 
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.dialog.ModernDialogHelpWindow;
 import org.jebtk.modern.panel.HExpandBox;
 import org.jebtk.modern.panel.VBox;
-import org.jebtk.modern.widget.ModernWidget;
 import org.jebtk.modern.window.ModernWindow;
 import org.jebtk.modern.window.WindowWidgetFocusEvents;
 
