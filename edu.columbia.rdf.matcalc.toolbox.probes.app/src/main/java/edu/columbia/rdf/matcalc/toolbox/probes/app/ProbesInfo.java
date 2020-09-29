@@ -40,8 +40,7 @@ public class ProbesInfo extends GuiAppInfo {
    * Instantiates a new pathway info.
    */
   public ProbesInfo() {
-    super("Probes", new AppVersion(1), "Copyright (C) 2016 Antony Holmes",
-        AssetService.getInstance().loadIcon(ProbesIcon.class, 32),
+    super("Probes", new AppVersion(1), "Copyright (C) 2016-${year} Antony Holmes",
         AssetService.getInstance().loadIcon(ProbesIcon.class, 128));
   }
 
